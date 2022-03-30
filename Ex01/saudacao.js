@@ -1,2 +1,3 @@
-export const saudacao = msg => msg
-console.log(saudacao('Olá!'))
+export function cumprimentar (msg) {
+  return msg
+}
