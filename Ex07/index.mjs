@@ -20,10 +20,10 @@ class Produto {
 
 class Pedido {
   numeroPedido
+  nomeCliente
   dataPedido = new Date().toLocaleDateString()
   estaPago = false
   listaProdutos = []
-  nomeCliente
   constructor(numeroPedido, nomeCliente) {
     this.numeroPedido = numeroPedido
     this.nomeCliente = nomeCliente
@@ -71,3 +71,4 @@ const produto5 = new Produto('Impressora', 5, true, 5)
 
 console.log(pedido1)
 console.log(pedido2)
+
