@@ -14,7 +14,7 @@ class Produto {
   }
 }
 
-class Pedidos {
+class Pedido {
   numeroPedido
   dataPedido = new Date().toLocaleDateString()
   estaPago = false
@@ -24,11 +24,14 @@ class Pedidos {
     this.numeroPedido = numeroPedido
     this.nomeCliente = nomeCliente
   }
-  // adicionar item no array
-  adicionarProdutos(...produto) {
-    this.listaProdutos.push(produto)
-  }
 
+  // adicionar item no array
+  adicionarProduto(produto) {
+    if (produto instanceof Produto) {
+      // se o argumento produto for instancia da classe Produto
+      this.listaProdutos.push(produto)
+    }
+  }
   calcularTotal() {
     let valorTotal = 0
     this.listaProdutos.forEach(produto => {
@@ -37,24 +40,3 @@ class Pedidos {
     return valorTotal
   }
 }
-
-const pedido1 = new Pedidos(
-  1,
-  'Camila',
-  this.estaPago,
-  this.dataPedido,
-  this.listaProdutos
-)
-
-const pedido2 = new Pedidos(
-  2,
-  'João',
-  this.estaPago,
-  this.dataPedido,
-  this.listaProdutos
-)
-
-pedido1.adicionarProdutos('mouse')
-console.log(pedido1)
-pedido2.adicionarProdutos('teclado', 'monitor')
-console.log(pedido2)
